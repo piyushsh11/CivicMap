@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "id": 1, "name": "D Ward", "code": "DW", "population": 350000 },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[72.81,19.00],[72.83,19.00],[72.83,19.03],[72.81,19.03],[72.81,19.00]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 2, "name": "K/E Ward", "code": "KE", "population": 450000 },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[72.84,19.08],[72.87,19.08],[72.87,19.11],[72.84,19.11],[72.84,19.08]]]
+      }
+    }
+  ]
+}

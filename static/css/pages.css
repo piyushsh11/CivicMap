@@ -1,0 +1,12 @@
+#map { width: 100%; }
+#wardInfo { margin-bottom: 12px; }
+#recList .list-item { align-items: flex-start; }
+
+#simCompare pre { min-height: 120px; }
+
+.report { print-color-adjust: exact; }
+@media print {
+  body { background: #fff; }
+  .topbar, .footer, .main-nav { display: none; }
+  .card { box-shadow: none; border: 1px solid #ddd; }
+}

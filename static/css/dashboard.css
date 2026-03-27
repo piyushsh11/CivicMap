@@ -1,0 +1,26 @@
+.hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.hero .card { background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #fff; }
+.hero h1 { color: #fff; }
+.subtext { color: rgba(255,255,255,0.8); }
+
+.legend {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+}
+.legend span { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
+.legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+.panel-title { display: flex; justify-content: space-between; align-items: center; }
+
+.before-after {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.before-after .card { background: #f8fafc; }

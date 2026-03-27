@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"id": 1, "name": "Ward 12", "code": "W12", "population": 52000},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[77.58,12.95],[77.60,12.95],[77.60,12.97],[77.58,12.97],[77.58,12.95]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": 2, "name": "Ward 18", "code": "W18", "population": 61000},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[77.60,12.93],[77.62,12.93],[77.62,12.95],[77.60,12.95],[77.60,12.93]]]
+      }
+    }
+  ]
+}

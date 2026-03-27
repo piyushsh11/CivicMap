@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="hero">
+  <div class="card">
+    <h1>Smart City Command Center</h1>
+    <p class="subtext">Live view of Mumbai civic health, deficits, and AI guidance.</p>
+    <div class="legend">
+      <span><span class="dot" style="background:#ef4444;"></span> High deficit</span>
+      <span><span class="dot" style="background:#f59e0b;"></span> Medium</span>
+      <span><span class="dot" style="background:#10b981;"></span> Low</span>
+    </div>
+  </div>
+  <div class="card insight-box">
+    <strong>AI Insight</strong>
+    <p>2 wards critically underserved. Healthcare gap is dominant. Green cover below standard in 60% of areas.</p>
+    <div class="alert-panel">
+      <div class="alert-item">Ward D: Healthcare deficit high</div>
+      <div class="alert-item">Ward K/E: Road connectivity poor</div>
+    </div>
+  </div>
+</div>
+
+<section class="grid four" id="kpiCards">
+  <div class="card kpi-card" data-metric="hospitals">
+    <div class="kpi-title">Hospitals per 10k</div>
+    <div class="kpi-value" id="kpi-hosp">0.0</div>
+    <div class="kpi-trend up" id="kpi-hosp-trend">↑ 0%</div>
+  </div>
+  <div class="card kpi-card" data-metric="schools">
+    <div class="kpi-title">Schools per 1k</div>
+    <div class="kpi-value" id="kpi-sch">0.0</div>
+    <div class="kpi-trend down" id="kpi-sch-trend">↓ 0%</div>
+  </div>
+  <div class="card kpi-card" data-metric="green">
+    <div class="kpi-title">Green cover %</div>
+    <div class="kpi-value" id="kpi-green">0%</div>
+    <div class="kpi-trend down" id="kpi-green-trend">↓ 0%</div>
+  </div>
+  <div class="card kpi-card" data-metric="roads">
+    <div class="kpi-title">Road density</div>
+    <div class="kpi-value" id="kpi-road">0</div>
+    <div class="kpi-trend down" id="kpi-road-trend">↓ 0%</div>
+  </div>
+</section>
+
+<section class="grid two">
+  <div class="card">
+    <div class="panel-title">
+      <h2>Civic Deficit Index</h2>
+      <div class="badge">Live</div>
+    </div>
+    <canvas id="cdiChart" height="140"></canvas>
+  </div>
+  <div class="card">
+    <div class="panel-title">
+      <h2>Critical Alerts</h2>
+      <button class="btn ghost" id="exportAlerts">Export</button>
+    </div>
+    <div class="alert-panel" id="alertList"></div>
+  </div>
+</section>
+
+<section class="grid two">
+  <div class="card">
+    <h2>Latest Recommendations</h2>
+    <div class="list" id="latestRecs">
+      {% for rec in top_recs %}
+        <div class="list-item">
+          <div>
+            <div class="badge">{{ rec.category }}</div>
+            <strong>{{ rec.title }}</strong>
+            <p>{{ rec.reason_summary }}</p>
+          </div>
+          <div class="pill {{ rec.urgency }}">{{ rec.urgency }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="card">
+    <h2>Underserved Wards</h2>
+    <table class="table">
+      <thead><tr><th>Ward</th><th>Population</th><th>Primary Gap</th><th>Action</th></tr></thead>
+      <tbody>
+        {% for w in wards %}
+        <tr>
+          <td>{{ w.name }}</td>
+          <td>{{ w.population }}</td>
+          <td>Healthcare / Roads</td>
+          <td><a class="btn" href="/wards/{{ w.id }}">Open</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+<script src="/static/js/dashboard.js?v=2"></script>
+{% endblock %}

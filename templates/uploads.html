@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Drone Uploads</h2>
+  <form class="upload-form">
+    <label>Ward <select><option>Ward 12</option><option>Ward 18</option></select></label>
+    <label>Imagery files <input type="file" multiple></label>
+    <button class="btn" type="button">Upload (stub)</button>
+  </form>
+  <p>Uploads are stubbed in demo mode. Integrate S3/MinIO in production.</p>
+</section>
+<script src="/static/js/uploads.js"></script>
+{% endblock %}

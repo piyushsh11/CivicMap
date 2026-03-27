@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h2>Scenario Simulation</h2>
+  <form id="simPageForm" class="grid three">
+    <label>Ward
+      <select name="ward_id" id="wardSelect">
+        <option value="1">Ward D</option>
+        <option value="2">Ward K/E</option>
+      </select>
+    </label>
+    <label>Action
+      <select name="action">
+        <option value="add hospital">Add hospital</option>
+        <option value="add school">Add school</option>
+        <option value="increase green">Increase green cover</option>
+        <option value="improve road">Improve road connectivity</option>
+        <option value="add water point">Add water point</option>
+      </select>
+    </label>
+    <button class="btn" type="submit">Run</button>
+  </form>
+  <div class="before-after">
+    <div class="card soft">
+      <h3>Before</h3>
+      <div id="beforeHosp">Hospital ratio: -</div>
+      <div id="beforeSchool">School ratio: -</div>
+      <div id="beforeGreen">Green cover: -</div>
+    </div>
+    <div class="card soft">
+      <h3>After</h3>
+      <div id="afterHosp">Hospital ratio: -</div>
+      <div id="afterSchool">School ratio: -</div>
+      <div id="afterGreen">Green cover: -</div>
+    </div>
+  </div>
+  <canvas id="simChart" height="140" style="margin-top:14px;"></canvas>
+  <div class="insight-box" id="simSummary">Run a simulation to see impact.</div>
+</section>
+<script src="/static/js/simulation.js?v=2"></script>
+{% endblock %}

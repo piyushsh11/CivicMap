@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CivicMap AI</title>
+  <link rel="stylesheet" href="/static/css/base.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/components.css" />
+  <link rel="stylesheet" href="/static/css/dashboard.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="app-shell">
+  <aside class="sidebar">
+    <div class="logo">CivicMap AI</div>
+    <nav class="side-nav">
+      <a href="/dashboard" class="nav-item">Dashboard</a>
+      <a href="/map" class="nav-item">Map</a>
+      <a href="/recommendations" class="nav-item">Recommendations</a>
+      <a href="/simulation" class="nav-item">Simulation</a>
+      <a href="/validation" class="nav-item">Validation</a>
+      <a href="/uploads" class="nav-item">Drone Uploads</a>
+      <a href="/admin" class="nav-item">Admin</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <div class="search-box">
+        <input type="search" placeholder="Search wards, KPIs, assets..." />
+      </div>
+      <div class="top-actions">
+        <button class="btn ghost">Customize</button>
+        <button class="btn">Add New</button>
+        <div class="avatar">MC</div>
+      </div>
+    </header>
+    <main class="page">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+</body>
+</html>

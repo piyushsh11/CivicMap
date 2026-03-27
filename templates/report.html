@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="report">
+  <header class="report-header">
+    <div>
+      <h1>Ward {{ ward_id }} Report</h1>
+      <p>Printable civic report with KPIs, CDI, recommendations, and validation summary.</p>
+    </div>
+    <div class="stamp">Export-ready</div>
+  </header>
+  <section class="grid two">
+    <div class="card soft">
+      <h3>KPIs</h3>
+      <ul>
+        {% for kpi in kpis %}
+        <li>{{ kpi.metric }} — {{ kpi.value }} (target {{ kpi.target }})</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="card soft">
+      <h3>Civic Deficit Index</h3>
+      <p>Total: {{ cdi.cdi }}</p>
+      <ul>
+        {% for name, comp in cdi.components.items() %}
+        <li>{{ name }}: {{ comp.deficit }} (w={{ comp.weight }})</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  <section class="card">
+    <h3>Recommendations</h3>
+    <ol>
+      {% for rec in recs %}
+      <li>
+        <strong>{{ rec.title }}</strong> — {{ rec.description }}
+        <div class="small">Urgency: {{ rec.urgency }} | Cost: {{ rec.cost_band }} | Confidence: {{ rec.confidence }}</div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+</section>
+{% endblock %}

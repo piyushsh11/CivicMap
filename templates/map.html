@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="map-layout">
+  <div id="map" class="map"></div>
+  <aside class="side-panel">
+    <h3>Ward Intelligence</h3>
+    <div id="wardInfo">Click a ward to view metrics.</div>
+    <div class="layer-toggles">
+      <label><input type="checkbox" data-layer="roads" checked> Roads</label>
+      <label><input type="checkbox" data-layer="hospitals" checked> Hospitals</label>
+      <label><input type="checkbox" data-layer="schools" checked> Schools</label>
+      <label><input type="checkbox" data-layer="green" checked> Green cover</label>
+    </div>
+    <div id="recList" class="list"></div>
+    <div class="legend" style="margin-top:10px;">
+      <span><span class="dot" style="background:#ef4444;"></span> High deficit</span>
+      <span><span class="dot" style="background:#f59e0b;"></span> Medium</span>
+      <span><span class="dot" style="background:#10b981;"></span> Low</span>
+    </div>
+  </aside>
+</section>
+<script src="/static/js/map.js?v=2"></script>
+{% endblock %}

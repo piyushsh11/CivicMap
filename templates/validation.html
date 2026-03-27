@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="grid two">
+  <div class="card">
+    <h2>Validation Health</h2>
+    <canvas id="confidenceGauge" height="160"></canvas>
+    <canvas id="accuracyBar" height="140"></canvas>
+  </div>
+  <div class="card">
+    <h2>Discrepancies</h2>
+    <pre>{{ latest.discrepancies }}</pre>
+    <h3>Audit Samples</h3>
+    <ul>
+      {% for s in samples %}
+      <li>{{ s.location }} — {{ s.result }} ({{ s.notes }})</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+<script src="/static/js/validation.js"></script>
+{% endblock %}

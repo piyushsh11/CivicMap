@@ -1,0 +1,11 @@
+ward_id,metric,value,target,unit
+1,hospitals_per_10k,0.4,1.2,per_10k
+1,schools_per_1k_children,0.8,1.1,per_1k
+1,green_cover_pct,7,18,percent
+1,road_density_km_per_sqkm,5.0,8.5,km_per_sqkm
+1,water_points_per_10k,0.35,0.9,per_10k
+2,hospitals_per_10k,0.5,1.2,per_10k
+2,schools_per_1k_children,0.9,1.1,per_1k
+2,green_cover_pct,6,18,percent
+2,road_density_km_per_sqkm,4.5,8.5,km_per_sqkm
+2,water_points_per_10k,0.3,0.9,per_10k

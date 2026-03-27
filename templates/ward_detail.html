@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="grid two">
+  <div class="card">
+    <h2>{{ feature.properties.name }}</h2>
+    <p>Population: {{ feature.properties.population }}</p>
+    <canvas id="wardChart" height="120"></canvas>
+    <script>window.WARD_KPIS = {{ kpis | tojson }}; window.WARD_CDI = {{ cdi | tojson }};</script>
+  </div>
+  <div class="card">
+    <h2>Top Recommendations</h2>
+    <div class="list">
+      {% for rec in recs %}
+      <div class="list-item">
+        <div>
+          <div class="badge">{{ rec.category }}</div>
+          <strong>{{ rec.title }}</strong>
+          <p>{{ rec.reason_summary }}</p>
+          <small>Cost: {{ rec.cost_band }} | Urgency: {{ rec.urgency }} | Confidence: {{ rec.confidence }}</small>
+        </div>
+        <a class="btn ghost" href="/reports/ward/{{ feature.properties.id }}">Report</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="card">
+  <h3>Simulation</h3>
+  <form id="simForm">
+    <input type="hidden" name="ward_id" value="{{ feature.properties.id }}" />
+    <label>Action
+      <select name="action">
+        <option value="add_hospital">Add hospital</option>
+        <option value="add_school">Add school</option>
+        <option value="increase_green">Increase green</option>
+        <option value="improve_road">Improve road</option>
+        <option value="add_water_point">Add water point</option>
+      </select>
+    </label>
+    <button class="btn" type="submit">Run simulation</button>
+  </form>
+  <div id="simResult"></div>
+</section>
+<script src="/static/js/ward.js?v=2"></script>
+{% endblock %}

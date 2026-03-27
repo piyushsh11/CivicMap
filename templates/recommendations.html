@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <div class="panel-title">
+    <h2>Recommendation Feed</h2>
+    <div class="filters">
+      <label>Urgency <select id="urgencyFilter"><option value="">All</option><option>immediate</option><option>short-term</option><option>long-term</option></select></label>
+      <label>Cost band <select id="costFilter"><option value="">All</option><option>low</option><option>medium</option><option>high</option></select></label>
+    </div>
+  </div>
+  <div id="recCards" class="grid two">
+    {% for rec in recs %}
+    <div class="rec-card" data-urgency="{{ rec.urgency }}" data-cost="{{ rec.cost_band }}">
+      <div class="rec-meta">
+        <span class="badge">{{ rec.category }}</span>
+        <span class="pill {{ rec.urgency }}">{{ rec.urgency }}</span>
+        <span class="badge">Cost: {{ rec.cost_band }}</span>
+        <span class="badge">Confidence: {{ rec.confidence }}</span>
+      </div>
+      <h3>{{ rec.title }}</h3>
+      <p>{{ rec.reason_summary }}</p>
+      <div class="rec-meta">
+        <span class="badge">Priority {{ rec.priority_score }}</span>
+        <span class="badge">Impact {{ rec.impacted_population }}</span>
+      </div>
+      <div class="rec-actions">
+        <button class="btn ghost view-map" data-ward="{{ rec.ward_id }}">View on Map</button>
+        <button class="btn simulate" data-ward="{{ rec.ward_id }}" data-action="{{ rec.category }}">Simulate</button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<script src="/static/js/recommendations.js?v=2"></script>
+{% endblock %}
