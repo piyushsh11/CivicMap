@@ -22,8 +22,6 @@ Place production data under `data/mumbai/`:
 - `drone_uploads/` (verification imagery)
 Bundled fallback: `data/sample/*`
 
-## Report
-Detailed report: `docs/CivicMap_AI_Report.docx`
 
 ## Architecture (brief)
 Frontend: HTML/CSS/JS (Leaflet, Chart.js) • Backend: FastAPI • DB: PostgreSQL + PostGIS • AI: PyTorch scaffolding • GIS: GeoPandas, GDAL, Rasterio • Validation: NSS/MOSPI/OSM discrepancy checks • Visualization: Leaflet + Chart.js
