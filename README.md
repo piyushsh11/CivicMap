@@ -46,4 +46,4 @@ Frontend: HTML/CSS/JS (Leaflet, Chart.js) • Backend: FastAPI • DB: PostgreSQ
 ![Homepage](HOMEPAGE.jpeg)
 ![Part A](RECOMMENDATION.jpeg)
 ![Part A – live metrics](MAP.jpeg)
-
+![Part A – live metrics](INPUT.jpeg)
