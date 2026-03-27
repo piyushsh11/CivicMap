@@ -41,4 +41,9 @@ Frontend: HTML/CSS/JS (Leaflet, Chart.js) • Backend: FastAPI • DB: PostgreSQ
 - Styles: `static/css/*`
 - Scripts: `static/js/*`
 - Demo data: `data/sample/`, `data/mumbai/`
-- Report: `docs/CivicMap_AI_Report.docx`
+
+## Results (screenshots)
+![Homepage](HOMEPAGE.jpeg)
+![Part A](RECOMMENDATION.jpeg)
+![Part A – live metrics](MAP.jpeg)
+
